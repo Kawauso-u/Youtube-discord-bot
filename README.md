@@ -8,9 +8,9 @@
   - config.jsonに書くチャンネルIDは元々公開情報なので問題ありません
   - Webhook URLなどの秘密情報はGitHub Secretsに入れるので、Publicリポジトリでも他人には見えません
 
-## 1. Discord Webhookを16チャンネル分作る
+## 1. Discord Webhookをチャンネル分作る
 
-各チャンネルごとに「動画通知用」「配信通知用」の2つ、合計32個のWebhookを作成します
+各チャンネルごとに「動画通知用」「配信通知用」の2つのWebhookを作成します
 (同じチャンネルにまとめたい場合は動画用・配信用に同じURLを使ってOKです)。
 
 1. 各Discordチャンネルの設定(⚙️)→「連携サービス」→「ウェブフックを作成」
@@ -41,7 +41,7 @@
 
 ## 5. config.json を編集する
 
-添付した `config.json` のサンプルを、実際の16チャンネル分に書き換えます。
+添付した `config.json` のサンプルを、実際のチャンネル分に書き換えます。
 `name` は好きな名前(半角英数字推奨、後でWebhook設定と紐付けに使います)、`channel_id` は手順3で調べたIDです。
 
 ```json
@@ -58,7 +58,7 @@
 リポジトリの「Settings」→「Secrets and variables」→「Actions」→「New repository secret」
 
 - `YOUTUBE_API_KEY` → 手順2で取得したキー
-- `WEBHOOKS_JSON` → 16チャンネル分のWebhookをまとめた1つのJSON文字列(下記の形式で、config.jsonの`name`と対応させます)
+- `WEBHOOKS_JSON` → チャンネル分のWebhookをまとめた1つのJSON文字列(下記の形式で、config.jsonの`name`と対応させます)
 
 ```json
 {
