@@ -1,5 +1,11 @@
 [
-  { "name": "channel_01", "channel_id": "UCxxxxxxxxxxxxxxxxxxxxxx" },
-  { "name": "channel_02", "channel_id": "UCxxxxxxxxxxxxxxxxxxxxxx" },
-  { "name": "channel_03", "channel_id": "UCxxxxxxxxxxxxxxxxxxxxxx" }
+  { "name": "Genshin_JP", "channel_id": "UCAVR6Q0YgYa8xwz8rdg9Mrg" },
+  { "name": "BlueArchive_JP", "channel_id": "UCmgf8DJrAXFnU7j3u0kklUQ" },
+  { "name": "StarRail_JP", "channel_id": "UCrzCIt5o0X88G9bCdrdbv6g" },
+  { "name": "ZZZero_JP", "channel_id": "UCt09C9DPSuOGpHoitbcyCIQ" },
+  { "name": "EndField_JP", "channel_id": "UCGVCAOZvDH7_fmuRVxkusFQ" },
+  { "name": "WuWa_JP", "channel_id": "UCGc93NguHRwzv1Rw9MyIcxQ" },
+  { "name": "StellaSora_JP", "channel_id": "UCB6Fa31Z6S5WKlHgj82avFQ" },
+  { "name": "AzurePromilia_JP", "channel_id": "UC8Y1ecushe-u55Ggte9NS-w" }
+
 ]
