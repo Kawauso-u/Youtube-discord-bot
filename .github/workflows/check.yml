@@ -1,0 +1,38 @@
+name: YouTube to Discord Notifier
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"   # 5分おきに実行(GitHubの混雑状況により数分遅れることがあります)
+  workflow_dispatch: {}     # 手動実行もできるようにする
+
+permissions:
+  contents: write   # state.jsonをコミットするために必要
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: リポジトリを取得
+        uses: actions/checkout@v4
+
+      - name: Pythonをセットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: 依存パッケージをインストール
+        run: pip install -r requirements.txt
+
+      - name: チェック実行
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          WEBHOOKS_JSON: ${{ secrets.WEBHOOKS_JSON }}
+        run: python main.py
+
+      - name: 状態ファイルをコミット
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add state.json
+          git diff --staged --quiet || git commit -m "update state"
+          git push
